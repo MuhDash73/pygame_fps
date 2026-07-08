@@ -26,6 +26,7 @@ class Player(pygame.sprite.Sprite):
         self.obstacle_sprites = obstacle_sprites
         self.raycastables = raycastables
         self.enemies = enemies
+        self.shot = False
         for enemy in self.enemies:
             self.enemy = enemy
 
