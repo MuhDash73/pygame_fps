@@ -60,6 +60,7 @@ class Main():
                 dx, dy = (0,0)
 
             self.game.run(dx, dy)
+            '''
             try:
 
                 debug((
