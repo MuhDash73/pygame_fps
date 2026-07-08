@@ -74,6 +74,7 @@ class Main():
                     
             except Exception as e:
                 debug(e)
+            '''
             pygame.display.update()
             #print(self.clock.get_fps())
             self.clock.tick(self.FPS)
