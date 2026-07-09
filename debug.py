@@ -1,6 +1,6 @@
 import pygame
 pygame.init()
-font = pygame.font.Font(None,30)
+font = pygame.font.SysFont("comicsans",15)
 
 def debug(info,y = 0, x = 0):
 	display_surface = pygame.display.get_surface()
