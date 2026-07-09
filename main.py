@@ -60,21 +60,21 @@ class Main():
                 dx, dy = (0,0)
 
             self.game.run(dx, dy)
-            '''
+            
             try:
 
-                debug((
-                    int(self.clock.get_fps()),
-                    self.game.raycaster.FOV,
-                    self.game.player.direction
+                debug(
+                    f"{int(self.clock.get_fps())} FPS"
+                    #self.game.raycaster.FOV,
+                    #self.game.player.direction
                     #self.game.seenenemy.v_cords,
                     #self.game.seenenemy.enemy.v_cords_1,
                     #self.game.seenenemy.enemy.cords.distance_to(self.game.player.cords)
-                    ))
+                    )
                     
             except Exception as e:
-                debug(e)
-            '''
+                pass
+            
             pygame.display.update()
             #print(self.clock.get_fps())
             self.clock.tick(self.FPS)
