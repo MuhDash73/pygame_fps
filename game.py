@@ -15,6 +15,7 @@ class Game():
         self.state = "start_menu"
         
         self.visible_sprites_start = pygame.sprite.Group()
+        StartMenu("Assets/Title screens/StartMenu.png", self.visible_sprites_start)
 
         self.player = Player()
         self.other_updatable_sprites = pygame.sprite.Group()
@@ -80,8 +81,12 @@ class Game():
 
     def run(self, dx, dy):
         self.surface.fill("#000000")
+        keys = pygame.key.get_pressed()
         if self.state == "start_menu":
-            pass
+            self.visible_sprites_start.draw(self.surface)
+            if keys[pygame.K_SPACE]:
+                self.state = "playing"
+
         elif self.state == "playing":
             self.player.update(dx, dy)
             self.other_updatable_sprites.update(self.raycaster)
