@@ -12,7 +12,7 @@ from other_visible_sprites import *
 class Game():
     def __init__(self):
         self.surface = pygame.Surface((WIDTH, HEIGHT))
-        self.state = "playing"
+        self.state = "start_menu"
         
         self.visible_sprites_start = pygame.sprite.Group()
 
