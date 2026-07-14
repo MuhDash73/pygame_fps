@@ -13,6 +13,7 @@ class Game():
     def __init__(self):
         self.surface = pygame.Surface((WIDTH, HEIGHT))
         self.state = "start_menu"
+        self.win = None
         
         self.visible_sprites_start = pygame.sprite.Group()
         StartMenu("Assets/Title screens/StartMenu.png", self.visible_sprites_start)
@@ -94,11 +95,15 @@ class Game():
             self.raycaster.draw_rays(self.surface)
             self.visible_sprites_playing.draw(self.surface)
             self.raycaster.raycast()
+            #self.visible_sprites_playing_test.draw(self.surface)
             if self.enemies.sprites() == []:
                 self.state = "end_screen"
-            self.visible_sprites_playing_test.draw(self.surface)
+                EndScreen("Assets/Title screens/WinScreen.png", self.visible_sprites_end)
+            if self.player.hp <= 0:
+                self.state = "end_screen"
+                EndScreen("Assets/Title screens/LoseScreen.png", self.visible_sprites_end)
 
         elif self.state == "end_screen":
-            pass
+            self.visible_sprites_end.draw(self.surface)
 
         self.scale()

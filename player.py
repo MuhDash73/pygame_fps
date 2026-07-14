@@ -27,6 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.raycastables = raycastables
         self.enemies = enemies
         self.shot = False
+        self.hp = 100
         for enemy in self.enemies:
             self.enemy = enemy
 
@@ -65,7 +66,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_RIGHT]:
             self.direction = self.direction.rotate(0.1)
         if keys[pygame.K_n]:
-            self.direction = pygame.math.Vector2(0.944089, 0.329691)
+            self.hp -= 1
         
         self.direction = self.direction.rotate(dx*self.sensitivity)
         if keys[pygame.K_l]:

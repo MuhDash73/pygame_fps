@@ -13,3 +13,10 @@ class StartMenu(pygame.sprite.Sprite):
         self.image = pygame.Surface((WIDTH, HEIGHT))
         self.image = pygame.image.load(image).convert_alpha()
         self.rect = self.image.get_rect(topleft = (0,0))
+
+class EndScreen(pygame.sprite.Sprite):
+    def __init__(self, image, groups):
+        super().__init__(groups)
+        self.image = pygame.Surface((WIDTH, HEIGHT))
+        self.image = pygame.image.load(image).convert_alpha()
+        self.rect = self.image.get_rect(topleft = (0,0))
