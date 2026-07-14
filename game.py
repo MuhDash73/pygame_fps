@@ -60,9 +60,10 @@ class Game():
                                 temp_list.append(0)
                                 #print("added player")
                             elif col == "3":
-                                self.latest_enemy = Enemy(x, y, self.obstacle_sprites, self.player, [self.visible_sprites_playing_test, self.other_updatable_sprites, self.entity_sprites])
-                                self.seenenemy = SeenEnemy(self.latest_enemy, [self.other_updatable_sprites], self.player)
-                                self.latest_enemy.add_seenenemy(self.seenenemy)
+                                for i in range(5):
+                                    self.latest_enemy = Enemy(x + i*5, y, self.obstacle_sprites, self.player, [self.visible_sprites_playing_test, self.other_updatable_sprites, self.entity_sprites])
+                                    self.seenenemy = SeenEnemy(self.latest_enemy, [self.other_updatable_sprites], self.player)
+                                    self.latest_enemy.add_seenenemy(self.seenenemy)
                                 temp_list.append(0)
                             elif col == "-1":
                                 temp_list.append(0)

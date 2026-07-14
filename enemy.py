@@ -111,5 +111,10 @@ class SeenEnemy(pygame.sprite.Sprite):
                 center_y = max(-99999, min(99999, center_y))
 
                 self.rect = self.image.get_rect(center=(int(center_x), int(center_y + (self.player.up_direction))))
-                index = bisect.bisect_right(raycaster.result, (v_cords.y, 0, 0))
+                temp_result = [item[0] for item in raycaster.result]
+                try:
+                    index = bisect.bisect_right(temp_result, v_cords.y)
+                except:
+                    print(temp_result, v_cords.y)
+                    jasdf
                 raycaster.result.insert(index, (v_cords.y, False, self, None))
