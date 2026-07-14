@@ -96,12 +96,5 @@ if __name__ == "__main__":
 
 
 '''
-make bulklet go up or down
-6, 300
-6 pixels up = 300 pixels away
-300/6 = 50
-150 pixels away = 12 pixels up
-75 = 24
-div by 0
-[0.944089, 0.329691]
+add win + lose + pause
 '''

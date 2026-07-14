@@ -116,5 +116,4 @@ class SeenEnemy(pygame.sprite.Sprite):
                     index = bisect.bisect_right(temp_result, v_cords.y)
                 except:
                     print(temp_result, v_cords.y)
-                    jasdf
                 raycaster.result.insert(index, (v_cords.y, False, self, None))

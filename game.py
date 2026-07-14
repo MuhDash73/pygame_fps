@@ -23,6 +23,7 @@ class Game():
         self.visible_sprites_playing = pygame.sprite.Group()
         self.visible_sprites_playing_test = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.enemies = pygame.sprite.Group()
         self.raycastables = []
         self.create_map()
         self.create_other_visible_sprites()
@@ -62,7 +63,7 @@ class Game():
                                 #print("added player")
                             elif col == "3":
                                 for i in range(5):
-                                    self.latest_enemy = Enemy(x + i*5, y, self.obstacle_sprites, self.player, [self.visible_sprites_playing_test, self.other_updatable_sprites, self.entity_sprites])
+                                    self.latest_enemy = Enemy(x + i*5, y, self.obstacle_sprites, self.player, [self.visible_sprites_playing_test, self.other_updatable_sprites, self.entity_sprites, self.enemies])
                                     self.seenenemy = SeenEnemy(self.latest_enemy, [self.other_updatable_sprites], self.player)
                                     self.latest_enemy.add_seenenemy(self.seenenemy)
                                 temp_list.append(0)
@@ -93,7 +94,9 @@ class Game():
             self.raycaster.draw_rays(self.surface)
             self.visible_sprites_playing.draw(self.surface)
             self.raycaster.raycast()
-            #self.visible_sprites_playing_test.draw(self.surface)
+            if self.enemies.sprites() == []:
+                self.state = "end_screen"
+            self.visible_sprites_playing_test.draw(self.surface)
 
         elif self.state == "end_screen":
             pass
