@@ -64,7 +64,7 @@ class Main():
             try:
 
                 debug(
-                    f"{int(self.clock.get_fps())} FPS"
+                    f"{int(self.clock.get_fps())} FPS",
                     #self.game.raycaster.FOV,
                     #self.game.player.direction
                     #self.game.seenenemy.v_cords,
@@ -96,5 +96,6 @@ if __name__ == "__main__":
 
 
 '''
-add win + lose + pause
+change enemy spawns
+add HP bar
 '''

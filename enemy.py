@@ -64,9 +64,15 @@ class Enemy(pygame.sprite.Sprite):
             self.cords.y = 0
         elif self.cords.y > HEIGHT - self.rect.height:
             self.cords.y = HEIGHT - self.rect.height
+        
+    def damage_player(self):
+        if self.rect.colliderect(self.player.rect):
+            self.player.hp -= 1
+            #print(self.player.hp)
     
     def update(self, *others):
         self.move()
+        self.damage_player()
 
 
 
