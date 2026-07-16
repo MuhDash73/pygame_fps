@@ -60,6 +60,7 @@ class Game():
                             elif col == "1":
                                 self.player.start(x, y, self.obstacle_sprites, [self.visible_sprites_playing_test], self.raycastables, self.entity_sprites)
                                 self.raycaster = Raycaster(self.player, self.raycastables)
+                                self.healthbar = HealthBar(self.player, [self.visible_sprites_playing])
                                 temp_list.append(0)
                                 #print("added player")
                             elif col == "3":
