@@ -31,14 +31,18 @@ class Bullet(pygame.sprite.Sprite):
                 self.z += self.speed * ((self.player.up_direction * abs(self.player.up_direction)) / 1800)
             self.rect.center = (self.x, self.y)
             for enemy in pygame.sprite.spritecollide(self, self.enemies, False):
-                try:
-                    if enemy.bottom < self.z < enemy.top:
+                if not enemy.immune:
+                    try:
+                        if enemy.bottom < self.z < enemy.top:
+                            enemy.hp -= 1
+                            enemy.immune = True
+                    except:
+                        enemy.hp -= 1
+                        enemy.immune = True
+                        #print(self.z)
+                    if enemy.hp <= 0:
                         enemy.alive = False
                         enemy.kill()
-                except:
-                    enemy.alive = False
-                    enemy.kill()
-                    #print(self.z)
             try:
                 if self.raycastables[int(self.y/TILESIZE)][int(self.x/TILESIZE)] == 1:
                     hit = True

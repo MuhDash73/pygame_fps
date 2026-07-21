@@ -96,6 +96,14 @@ if __name__ == "__main__":
 
 
 '''
-change enemy spawns
-add HP bar
+enemy types:
+
+
+
+enemy heights:
+    normal
+    high
+    low
+
+make enemy have different types + heights
 '''

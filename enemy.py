@@ -1,4 +1,5 @@
 import pygame
+import random
 from math import *
 from settings import *
 from debug import debug
@@ -17,6 +18,8 @@ class Enemy(pygame.sprite.Sprite):
         self.speed = 0.9
         self.obstacle_sprites = obstacle_sprites
         self.player = player
+        self.hp = 1
+        self.immune = False
         self.alive = True
     
     def add_seenenemy(self, seenenemy):
@@ -71,6 +74,7 @@ class Enemy(pygame.sprite.Sprite):
             #print(self.player.hp)
     
     def update(self, *others):
+        self.immune = False
         self.move()
         self.damage_player()
 
@@ -80,10 +84,13 @@ class Enemy(pygame.sprite.Sprite):
 class SeenEnemy(pygame.sprite.Sprite):
     def __init__(self, enemy, groups, player):
         super().__init__(groups)
-        self.width = 45
-        self.height = self.width * 2
-        self.image = pygame.Surface((20,40))
-        self.ground = 4
+        self.type = random.choice(["normal", "high", "low"])
+        self.type = "high"
+        list = enemy_heights[self.type]
+        self.width = list[0]
+        self.height = list[1]
+        self.image = pygame.Surface(list[2])
+        self.ground = list[3]
         self.image.fill("red")
         self.player = player
         self.rect = self.image.get_rect(center = (0,0))
