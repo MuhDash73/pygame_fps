@@ -85,7 +85,6 @@ class SeenEnemy(pygame.sprite.Sprite):
     def __init__(self, enemy, groups, player):
         super().__init__(groups)
         self.type = random.choice(["normal", "high", "low"])
-        self.type = "high"
         list = enemy_heights[self.type]
         self.width = list[0]
         self.height = list[1]
