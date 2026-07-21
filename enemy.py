@@ -18,7 +18,7 @@ class Enemy(pygame.sprite.Sprite):
         self.speed = 0.9
         self.obstacle_sprites = obstacle_sprites
         self.player = player
-        self.hp = 1
+        self.hp = 10
         self.immune = False
         self.alive = True
     
