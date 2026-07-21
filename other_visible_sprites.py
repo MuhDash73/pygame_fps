@@ -15,6 +15,11 @@ class HealthBar(pygame.sprite.Sprite):
         self.image.fill("red")
         self.background = HealthBarBackground(self.rect, 5, groups)
         super().__init__(groups)
+    
+    def update(self, others):
+        self.image = pygame.Surface((self.player.hp*2, 20))
+        self.rect = self.image.get_rect(bottomleft = (20, HEIGHT-20))
+        self.image.fill("red")
 
 class HealthBarBackground(pygame.sprite.Sprite):
     def __init__(self, oldrect, increase, groups):

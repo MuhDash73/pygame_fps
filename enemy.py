@@ -14,7 +14,7 @@ class Enemy(pygame.sprite.Sprite):
         self.y = y
         self.cords = pygame.math.Vector2(self.x, self.y)
         self.direction = pygame.math.Vector2(0,-1)
-        self.speed = 1
+        self.speed = 0.9
         self.obstacle_sprites = obstacle_sprites
         self.player = player
         self.alive = True
